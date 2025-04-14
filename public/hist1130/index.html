@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shannen's HIST 1130 Unessay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="relative min-h-screen bg-gray-900 text-black overflow-x-hidden overflow-y-auto p-[96px]">
+
+  <div class="absolute inset-0 -z-10">
+    <div class="relative h-full w-full bg-white [&>div]:absolute [&>div]:h-full [&>div]:w-full
+                [&>div]:bg-[radial-gradient(#e5e7eb_1px,transparent_1px)]
+                [&>div]:[background-size:16px_16px]
+                [&>div]:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
+      <div></div>
+    </div>
+  </div>
+
+  <!-- 👋 Welcome Screen -->
+  <div id="intro-screen" class="flex flex-col justify-center items-center min-h-[calc(100vh-192px)] text-center space-y-8">
+    <div class="max-w-2xl space-y-6">
+      <h1 class="text-4xl font-bold">Welcome to Shannen's HIST 1130 Unessay Project! 👋🏼</h1>
+      <p class="text-lg text-gray-700">
+        This project is a series of three jigsaw puzzles that break down how colonization shaped the Philippines, literally piece by piece. Each puzzle represents a different era of foreign rule, and together, they tell the story of how outside forces pulled the country in different directions, only for it to become something entirely its own.
+      </p>
+      <p class="text-lg text-gray-700">
+        From Spanish missions to American public schools to Japanese occupation during WWII, each stage left behind a different mark. This isn’t just about history. It’s about how those legacies still echo today in culture, politics, religion, and identity.
+      </p>
+      <p class="text-lg font-semibold text-black">Here’s what you’ll be solving:</p>
+      <div class="flex items-center justify-center gap-4">
+        <img src="imgs/spanish.jpg" alt="Spanish Era" class="h-32 w-auto object-cover border border-white rounded shadow" />
+        <span class="text-2xl">→</span>
+        <img src="imgs/american.jpg" alt="American Era" class="h-32 w-auto object-cover border border-white rounded shadow" />
+        <span class="text-2xl">→</span>
+        <img src="imgs/japanese.jpg" alt="Japanese Era" class="h-32 w-auto object-cover border border-white rounded shadow" />
+      </div>
+    </div>
+
+    <button onclick="startGame()" type="button"
+      class="text-white bg-gradient-to-br from-purple-600 to-blue-500  hover:bg-gradient-to-bl rounded-full text-lg px-6 py-3 text-center inline-flex items-center">
+      Click here to begin
+    </button>
+  </div>
+
+  <!-- 🧩 Game Screen -->
+  <div id="game-screen" class="hidden flex flex-col items-center space-y-4">
+    <h2 id="header-title" class="text-3xl font-semibold text-center"></h2>
+    <div id="timer" class="text-lg">⏱️ Time: <span id="timer-count">0</span> seconds</div>
+
+    <div id="puzzle-container" class="relative border-4 border-black"></div>
+
+    <!-- Buttons Side-by-Side -->
+    <div id="button-group" class="flex flex-wrap gap-4 justify-center mt-4">
+      <!-- Complete Puzzle Button -->
+      <button id="complete-button" onclick="completeManually()"
+        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-md group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900">
+        <span class="relative px-4 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded group-hover:bg-transparent group-hover:dark:bg-transparent">
+          Click Me to Complete Puzzle
+        </span>
+      </button>
+
+      <!-- Hover to View Full Image Button -->
+      <div id="view-btn-wrapper" class="relative group flex flex-col items-center">
+        <div id="view-tooltip"
+          class="absolute hidden group-hover:block bottom-full mb-2 z-50 border border-gray-300 shadow-xl rounded bg-white">
+          <img id="hover-image" src="imgs/spanish.jpg" alt="Full Puzzle Image" class="max-w-xs max-h-96 rounded" />
+        </div>
+        <button id="view-full-button"
+          class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-md bg-gradient-to-br from-indigo-300 to-sky-300 hover:from-indigo-400 hover:to-sky-400 dark:text-white dark:hover:text-gray-900">
+          <span class="relative px-4 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded hover:bg-transparent hover:dark:bg-transparent">
+            Hover to View Full Image
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div id="completion-message" class="hidden mt-6 max-w-xl text-center space-y-4">
+      <p id="completion-text" class="text-lg text-black"></p>
+      <button id="next-stage-btn" onclick="nextStage()" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        Continue
+      </button>
+    </div>
+  </div>
+
+  <!-- 🎉 Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
